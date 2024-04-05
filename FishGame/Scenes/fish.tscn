@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=3 uid="uid://bwvy12hwgvw4g"]
+
+[ext_resource type="Script" path="res://Scripts/Fish.gd" id="1_rp6hm"]
+[ext_resource type="Texture2D" uid="uid://bme6ptermmgoh" path="res://Sprites and Art/Swim1.png" id="2_62cx5"]
+[ext_resource type="Texture2D" uid="uid://dfm1o66lclsui" path="res://Sprites and Art/Swim2.png" id="3_2tagh"]
+
+[sub_resource type="Animation" id="Animation_hexv8"]
+resource_name = "idle"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flipper/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 1.1, 1.5, 1.8, 2.2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_62cx5"), ExtResource("3_2tagh"), ExtResource("2_62cx5"), ExtResource("3_2tagh"), ExtResource("2_62cx5"), ExtResource("3_2tagh"), ExtResource("2_62cx5"), ExtResource("3_2tagh")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vponx"]
+_data = {
+"idle": SubResource("Animation_hexv8")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2m7al"]
+radius = 137.615
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l07r7"]
+radius = 17.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pw1fh"]
+radius = 0.01
+
+[node name="Fish" type="CharacterBody2D"]
+position = Vector2(602, 252)
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("1_rp6hm")
+
+[node name="FishAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vponx")
+}
+
+[node name="FoodDetector" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FoodDetector"]
+visible = false
+light_mask = 8
+visibility_layer = 8
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_2m7al")
+
+[node name="Flipper" type="CharacterBody2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Flipper"]
+light_mask = 8
+visibility_layer = 8
+position = Vector2(-41, 2)
+shape = SubResource("CircleShape2D_l07r7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Flipper"]
+position = Vector2(2, 0)
+scale = Vector2(3.33871, 3.05)
+texture = ExtResource("2_62cx5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 512
+visibility_layer = 512
+shape = SubResource("CircleShape2D_pw1fh")
+
+[connection signal="body_entered" from="FoodDetector" to="." method="_on_food_detector_body_entered"]
+[connection signal="body_exited" from="FoodDetector" to="." method="_on_food_detector_body_exited"]

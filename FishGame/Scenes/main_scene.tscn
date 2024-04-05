@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://bp6wdkgtd4mvq"]
+
+[ext_resource type="PackedScene" uid="uid://bwvy12hwgvw4g" path="res://Scenes/fish.tscn" id="1_6gbrv"]
+[ext_resource type="Script" path="res://Scripts/FoodSpawner.gd" id="2_b6xpd"]
+[ext_resource type="Script" path="res://Scripts/startpoint.gd" id="3_sqhdy"]
+[ext_resource type="PackedScene" uid="uid://byu2rlnv67lem" path="res://Scenes/air_pump.tscn" id="4_f21hf"]
+
+[sub_resource type="GDScript" id="GDScript_lf8xg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07eun"]
+size = Vector2(1211, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wooq0"]
+
+[node name="MainScene" type="Node2D"]
+position = Vector2(-41, -3)
+script = SubResource("GDScript_lf8xg")
+
+[node name="Fish" parent="." instance=ExtResource("1_6gbrv")]
+light_mask = 9
+visibility_layer = 9
+position = Vector2(623, 334)
+
+[node name="FoodSpawner" type="Node2D" parent="."]
+position = Vector2(52, 7)
+script = ExtResource("2_b6xpd")
+
+[node name="Timer" type="Timer" parent="FoodSpawner"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(633, 333)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(580, 615)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(42, 45)
+shape = SubResource("RectangleShape2D_07eun")
+
+[node name="Activator" type="CharacterBody2D" parent="."]
+position = Vector2(592, 337)
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("3_sqhdy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Activator"]
+visible = false
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_wooq0")
+
+[node name="AirPump" parent="." instance=ExtResource("4_f21hf")]
+
+[connection signal="timeout" from="FoodSpawner/Timer" to="FoodSpawner" method="_on_timer_timeout"]

@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://2gpyru46xy8n"]
+
+[ext_resource type="Script" path="res://Scripts/FoodParticle.gd" id="1_ehega"]
+[ext_resource type="Texture2D" uid="uid://con1pemrb7upy" path="res://Sprites and Art/foodsprite.png" id="2_ifet6"]
+
+[sub_resource type="GDScript" id="GDScript_t72nv"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="FoodParticle" type="RigidBody2D"]
+position = Vector2(556, 15)
+collision_layer = 25
+collision_mask = 25
+mass = 0.12
+gravity_scale = 0.2
+script = ExtResource("1_ehega")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+light_mask = 25
+visibility_layer = 25
+polygon = PackedVector2Array(-7, 24, -3, 24, -3, 21, 0, 21, 0, 18, 3, 18, 3, 15, 6, 15, 6, 12, 10, 12, 13, 8, 13, 5, 15, 5, 19, 3, 22, -1, 22, -10, 14, -13, 9, -20, 2, -19, 3, -15, -4, -16, -5, -10, -11, -10, -12, -5, -16, -5, -16, -1, -20, 0, -19, 5, -22, 5, -21, 14, -18, 15, -18, 21, -16, 20, -16, 23)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_ifet6")
+
+[node name="FishMouth Detector" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+script = SubResource("GDScript_t72nv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FishMouth Detector"]
+light_mask = 25
+visibility_layer = 25
+polygon = PackedVector2Array(-7, 24, -3, 24, -3, 21, 0, 21, 0, 18, 3, 18, 3, 15, 6, 15, 6, 12, 10, 12, 13, 8, 13, 5, 15, 5, 19, 3, 22, -1, 22, -10, 14, -13, 9, -20, 2, -19, 3, -15, -4, -16, -5, -10, -11, -10, -12, -5, -16, -5, -16, -1, -20, 0, -19, 5, -22, 5, -21, 14, -18, 15, -18, 21, -16, 20, -16, 23)
+
+[connection signal="body_entered" from="FishMouth Detector" to="." method="_on_fish_mouth_detector_body_entered"]
