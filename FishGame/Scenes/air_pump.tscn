@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/AirPump.gd" id="1_7q1rm"]
 [ext_resource type="Texture2D" uid="uid://clw815uyrxcw5" path="res://Sprites and Art/up arrow.png" id="2_nmd4e"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_btr81"]
-size = Vector2(46, 112)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q2i3i"]
+size = Vector2(202.75, 288.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_85lot"]
 radius = 4.12311
@@ -22,9 +22,6 @@ position = Vector2(334, 425)
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("1_7q1rm")
-MovementSpeed = 500.0
-VerticalImpulseForce = 0.5
-HorizontalImpulseForce = 0.5
 
 [node name="PumpingAnimationSprite" type="Sprite2D" parent="."]
 position = Vector2(31, -70)
@@ -38,30 +35,29 @@ scale = Vector2(0.0541667, 0.119283)
 texture = ExtResource("2_nmd4e")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(4, -80)
+position = Vector2(0, -1)
 collision_layer = 16
 collision_mask = 16
 gravity_space_override = 1
+gravity_point_center = Vector2(0, -1.8)
+gravity_direction = Vector2(0, -1.8)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 light_mask = 16
 visibility_layer = 16
-position = Vector2(4, 245)
-shape = SubResource("RectangleShape2D_btr81")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-position = Vector2(0, 9)
-polygon = PackedVector2Array(-25, 177, 32, 177, 153, -109, -141, -111)
+position = Vector2(4.625, -60.25)
+shape = SubResource("RectangleShape2D_q2i3i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 16
 visibility_layer = 16
-position = Vector2(9, 218)
+position = Vector2(8, 279)
 shape = SubResource("CircleShape2D_85lot")
-disabled = true
 
 [node name="PumpAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_8ws07")
 }
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

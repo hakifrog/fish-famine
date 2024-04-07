@@ -143,17 +143,17 @@ func _physics_process(delta):
 				return
 			move_to_target()
 			
-	if pause_state == true && HungerState.STARVED:
+	if pause_state == true && hunger_state == HungerState.STARVED:
 		AnimPlay.play("starvingidle")
-	elif pause_state == false && HungerState.STARVED:
+	elif pause_state == false && hunger_state == HungerState.STARVED:
 		AnimPlay.play("starving_swim")
-	elif pause_state == true && HungerState.HUNGRY:
+	elif pause_state == true && hunger_state == HungerState.HUNGRY:
 		AnimPlay.play("hungryidle")
-	elif pause_state == false && HungerState.HUNGRY:
+	elif pause_state == false && hunger_state == HungerState.HUNGRY:
 		AnimPlay.play("hungryswim")
-	elif pause_state == true && HungerState.HEALTHY:
+	elif pause_state == true && hunger_state == HungerState.HEALTHY:
 		AnimPlay.play("healthyidle")
-	elif pause_state == false && HungerState.HEALTHY:
+	elif pause_state == false && hunger_state == HungerState.HEALTHY:
 		AnimPlay.play("healthyswim")
 
 	adjust_speed_based_on_hunger()
@@ -190,9 +190,9 @@ func _on_food_detector_body_exited(body):
 
 
 func _on_area_2d_body_entered(body2):
-	if HungerState.STARVED:
+	if hunger_state == HungerState.STARVED:
 		AnimPlay.play("starvingeat")
-	elif HungerState.HUNGRY:
+	elif hunger_state == HungerState.HUNGRY:
 		AnimPlay.play("hungryeat")
 	hunger_level += 5
 	return

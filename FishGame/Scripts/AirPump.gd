@@ -1,27 +1,25 @@
 extends CharacterBody2D
 
 
-@export var MovementSpeed = 300.0
-@export var VerticalImpulseForce = 1.0
-@export var HorizontalImpulseForce = 1.0
+const SPEED = 300.0
 
+var food = null
 @onready var AnimPlay = $PumpAnimation
-@onready var CharBase = $CollisionShape2D
-@onready var ForceArea = $Area2D
-
 func _physics_process(delta):
 	var direction = Input.get_axis("left", "right")
 	if direction:
-		velocity.x = direction * MovementSpeed
+		velocity.x = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, MovementSpeed)
-	
-	for body in ForceArea.get_overlapping_bodies():
-		var pushImpulse = Vector2(direction * HorizontalImpulseForce, -VerticalImpulseForce);
-		if (body.linear_velocity.y > 0):
-			pushImpulse.y *= 2
-		
-		if Input.is_action_pressed("shoot"):
-			body.apply_central_impulse(pushImpulse)
-		
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+	if food != null:
+		if Input.is_action_just_pressed("ui_left"):
+			food.apply_central_impulse(Vector2(-3,0))
+		if Input.is_action_just_pressed("ui_right"):
+			food.apply_central_impulse(Vector2(3,0))
+
+
 	move_and_slide()
+
+
+func _on_area_2d_body_entered(body):
+	food = body

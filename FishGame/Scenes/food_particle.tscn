@@ -21,8 +21,8 @@ func _process(delta):
 position = Vector2(556, 15)
 collision_layer = 25
 collision_mask = 25
-mass = 0.03
-gravity_scale = 0.15
+mass = 0.12
+gravity_scale = 0.2
 script = ExtResource("1_ehega")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
