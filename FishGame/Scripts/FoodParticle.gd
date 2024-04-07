@@ -12,11 +12,20 @@ func _ready():
 
 
 
+<<<<<<< HEAD
 func _process(delta):
 	
 	clock += delta
 	if clock >= countDown:
 		queue_free()
+=======
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+	#
+	#clock += delta
+	#if clock >= countDown:
+		#queue_free()
+>>>>>>> 7d105693fc4086406a1257920ab85d9b817710fb
 
 
 func _on_fish_mouth_detector_body_entered(body):
