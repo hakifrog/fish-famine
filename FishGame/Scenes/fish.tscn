@@ -1,12 +1,46 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwvy12hwgvw4g"]
+[gd_scene load_steps=52 format=3 uid="uid://bwvy12hwgvw4g"]
 
 [ext_resource type="Script" path="res://Scripts/Fish.gd" id="1_rp6hm"]
-[ext_resource type="Texture2D" uid="uid://bme6ptermmgoh" path="res://Sprites and Art/Swim1.png" id="2_62cx5"]
-[ext_resource type="Texture2D" uid="uid://dfm1o66lclsui" path="res://Sprites and Art/Swim2.png" id="3_2tagh"]
+[ext_resource type="Texture2D" uid="uid://c5xs5elsy3usd" path="res://Sprites and Art/STARVING_FISH/STARVING_IDLE/STARVING_IDLE_1.png" id="2_otgxv"]
+[ext_resource type="Texture2D" uid="uid://beq2ipcms00qj" path="res://Sprites and Art/STARVING_FISH/STARVING_IDLE/STARVING_IDLE_2.png" id="3_ealxi"]
+[ext_resource type="Texture2D" uid="uid://bmvsru8kpsach" path="res://Sprites and Art/STARVING_FISH/STARVING_IDLE/STARVING_IDLE_3.png" id="4_rv7mu"]
+[ext_resource type="Texture2D" uid="uid://bqbhomqfutwty" path="res://Sprites and Art/STARVING_FISH/STARVING_SWIM/STARVING_FISH_SWIM_1.png" id="5_78320"]
+[ext_resource type="Texture2D" uid="uid://ic6as6psp288" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/STARVING_FISH/STARVING_SWIM/STARVING_FISH_SWIM_3.png" id="5_aqu7d"]
+[ext_resource type="Texture2D" uid="uid://cir1ffnfvl6dx" path="res://Sprites and Art/STARVING_FISH/STARVING_SWIM/STARVING_FISH_SWIM_1.5.png" id="6_7sjwt"]
+[ext_resource type="Texture2D" uid="uid://i60ko0vmmnbn" path="res://Sprites and Art/STARVING_FISH/STARVING_SWIM/STARVING_FISH_SWIM_2.png" id="6_aosvl"]
+[ext_resource type="Texture2D" uid="uid://c3mmtfggq8e84" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/STARVING_FISH/STARVING_SWIM/STARVING_FISH_SWIM_4.png" id="6_hliha"]
+[ext_resource type="Texture2D" uid="uid://boivbqe1xpm1i" path="res://Sprites and Art/STARVING_FISH/STARVING_SWIM/STARVING_FISH_SWIM_3.png" id="7_hnn5n"]
+[ext_resource type="Texture2D" uid="uid://dvjm7garxavcl" path="res://Sprites and Art/STARVING_FISH/STARVING_SWIM/STARVING_FISH_SWIM_2.5.png" id="8_03l6l"]
+[ext_resource type="Texture2D" uid="uid://bq1w1mndbosuc" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/STARVING_FISH/STARVING_SWIM/STARVING_FISH_SWIM_2.png" id="9_qju5h"]
+[ext_resource type="Texture2D" uid="uid://5jo7627tgh1j" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/STARVING_FISH/STARVING_EATING/STARVING_EATING_1.png" id="13_obayh"]
+[ext_resource type="Texture2D" uid="uid://t1nemkb7b32j" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/STARVING_FISH/STARVING_EATING/STARVING_EATING_2.png" id="14_brto4"]
+[ext_resource type="Texture2D" uid="uid://bqgiasp2hvgfo" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/STARVING_FISH/STARVING_EATING/STARVING_EATING_3.png" id="15_4ypgq"]
+[ext_resource type="Texture2D" uid="uid://2cpdluq8r3us" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/HUNGRY_FISH/HUNGRY_SWIMMING/HUNGRY_SWIM_1.png" id="16_1vdt2"]
+[ext_resource type="Texture2D" uid="uid://be6bdq8m7qmje" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/HUNGRY_FISH/HUNGRY_SWIMMING/HUNGRY_SWIM_2.png" id="17_k8gc0"]
+[ext_resource type="Texture2D" uid="uid://cju0hrkhngm6f" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/HUNGRY_FISH/HUNGRY_SWIMMING/HUNGRY_SWIM_3.png" id="18_xhd0e"]
+[ext_resource type="Texture2D" uid="uid://cx737gm1u22j2" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/HUNGRY_FISH/HUNGRY_SWIMMING/HUNGRY_SWIM_4.png" id="19_orcjg"]
+[ext_resource type="Texture2D" uid="uid://djhrqutlypw0b" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/HUNGRY_FISH/HUNGRY_SWIMMING/HUNGRY_SWIM_5.png" id="20_qtf1a"]
+[ext_resource type="Texture2D" uid="uid://crvg0j4ct3fuc" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/HUNGRY_FISH/HUNGRY_IDLE/HUNGRY_IDLE_1.png" id="21_ys6wr"]
+[ext_resource type="Texture2D" uid="uid://b2si4cw4mfjm2" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/HUNGRY_FISH/HUNGRY_IDLE/HUNGRY_IDLE_2.png" id="22_3s62k"]
+[ext_resource type="Texture2D" uid="uid://bltauns17cw2p" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/HUNGRY_FISH/HUNGRY_IDLE/HUNGRY_IDLE_3.png" id="23_7st24"]
+[ext_resource type="Texture2D" uid="uid://4togtdlft23" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/HUNGRY_FISH/HUNGRY_EATING/HUNGRY_EATING_1.png" id="24_cqdaa"]
+[ext_resource type="Texture2D" uid="uid://d2sniy3dxap5j" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/HUNGRY_FISH/HUNGRY_EATING/HUNGRY_EATING_2.png" id="25_gs4ew"]
+[ext_resource type="Texture2D" uid="uid://b8h3m0nlu4hgg" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/HUNGRY_FISH/HUNGRY_EATING/HUNGRY_EATING_3.png" id="26_bfc7v"]
+[ext_resource type="Texture2D" uid="uid://clynqspcjob7q" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/FINE_FISH/FINE_SWIMMING/FINE_SWIMMING_1.png" id="27_ud7d3"]
+[ext_resource type="Texture2D" uid="uid://tdk5fxjiep4y" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/FINE_FISH/FINE_SWIMMING/FINE_SWIMMING_2.png" id="28_v67sg"]
+[ext_resource type="Texture2D" uid="uid://c2orhcegoec3" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/FINE_FISH/FINE_SWIMMING/FINE_SWIMMING_3.png" id="29_b4f5v"]
+[ext_resource type="Texture2D" uid="uid://b4d1idheya670" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/FINE_FISH/FINE_SWIMMING/FINE_SWIMMING_4.png" id="30_4snov"]
+[ext_resource type="Texture2D" uid="uid://d1mdbyrye3jfi" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/FINE_FISH/FINE_SWIMMING/FINE_SWIMMING_5.png" id="31_jxwy6"]
+[ext_resource type="Texture2D" uid="uid://q3j6oam7k0rr" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/FINE_FISH/FINE_EATING/FINE_EATING_1.png" id="32_gtdkm"]
+[ext_resource type="Texture2D" uid="uid://bdj2h0bv2w0nj" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/FINE_FISH/FINE_EATING/FINE_EATING_2.png" id="33_s6usm"]
+[ext_resource type="Texture2D" uid="uid://b6luhx2ity1oc" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/FINE_FISH/FINE_EATING/FINE_EATING_3.png" id="34_k6ak7"]
+[ext_resource type="Texture2D" uid="uid://ca8alsqapllha" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/FINE_FISH/FINE_IDLE/FINE_IDLE_1.png" id="35_1kjec"]
+[ext_resource type="Texture2D" uid="uid://cb03qvuojf5hr" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/FINE_FISH/FINE_IDLE/FINE_IDLE_2.png" id="36_6he8e"]
+[ext_resource type="Texture2D" uid="uid://2lsnwgw3gu1o" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/FINE_FISH/FINE_IDLE/FINE_IDLE_3.png" id="37_sf7hr"]
 
-[sub_resource type="Animation" id="Animation_hexv8"]
-resource_name = "idle"
-length = 2.5
+[sub_resource type="Animation" id="Animation_tu8gp"]
+resource_name = "starving_swim"
+length = 0.9
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -14,15 +48,151 @@ tracks/0/path = NodePath("Flipper/Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.7, 1.1, 1.5, 1.8, 2.2, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_62cx5"), ExtResource("3_2tagh"), ExtResource("2_62cx5"), ExtResource("3_2tagh"), ExtResource("2_62cx5"), ExtResource("3_2tagh"), ExtResource("2_62cx5"), ExtResource("3_2tagh")]
+"values": [ExtResource("5_78320"), ExtResource("6_7sjwt"), ExtResource("6_aosvl"), ExtResource("5_aqu7d"), ExtResource("6_hliha"), ExtResource("8_03l6l"), ExtResource("7_hnn5n"), ExtResource("6_hliha"), ExtResource("9_qju5h")]
+}
+
+[sub_resource type="Animation" id="Animation_hexv8"]
+resource_name = "starvingidle"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flipper/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_otgxv"), ExtResource("3_ealxi"), ExtResource("4_rv7mu")]
+}
+
+[sub_resource type="Animation" id="Animation_ftksp"]
+resource_name = "starvingeat"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flipper/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("13_obayh"), ExtResource("14_brto4"), ExtResource("15_4ypgq")]
+}
+
+[sub_resource type="Animation" id="Animation_74r5v"]
+resource_name = "hungryswim"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flipper/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("16_1vdt2"), ExtResource("17_k8gc0"), ExtResource("18_xhd0e"), ExtResource("19_orcjg"), ExtResource("20_qtf1a")]
+}
+
+[sub_resource type="Animation" id="Animation_03tts"]
+resource_name = "hungryidle"
+length = 0.59
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flipper/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("21_ys6wr"), ExtResource("22_3s62k"), ExtResource("23_7st24")]
+}
+
+[sub_resource type="Animation" id="Animation_pe1bf"]
+resource_name = "hungryeat"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flipper/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("24_cqdaa"), ExtResource("25_gs4ew"), ExtResource("26_bfc7v")]
+}
+
+[sub_resource type="Animation" id="Animation_ahvii"]
+resource_name = "healthyswim"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flipper/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("27_ud7d3"), ExtResource("28_v67sg"), ExtResource("29_b4f5v"), ExtResource("30_4snov"), ExtResource("31_jxwy6")]
+}
+
+[sub_resource type="Animation" id="Animation_1ckec"]
+resource_name = "healthyeat"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flipper/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("32_gtdkm"), ExtResource("33_s6usm"), ExtResource("34_k6ak7")]
+}
+
+[sub_resource type="Animation" id="Animation_mnqvs"]
+resource_name = "healthyidle"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flipper/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("35_1kjec"), ExtResource("36_6he8e"), ExtResource("37_sf7hr")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vponx"]
 _data = {
-"idle": SubResource("Animation_hexv8")
+"healthyeat": SubResource("Animation_1ckec"),
+"healthyidle": SubResource("Animation_mnqvs"),
+"healthyswim": SubResource("Animation_ahvii"),
+"hungryeat": SubResource("Animation_pe1bf"),
+"hungryidle": SubResource("Animation_03tts"),
+"hungryswim": SubResource("Animation_74r5v"),
+"starving_swim": SubResource("Animation_tu8gp"),
+"starvingeat": SubResource("Animation_ftksp"),
+"starvingidle": SubResource("Animation_hexv8")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2m7al"]
@@ -30,6 +200,9 @@ radius = 137.615
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l07r7"]
 radius = 17.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_anyjn"]
+radius = 18.0278
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pw1fh"]
 radius = 0.01
@@ -67,14 +240,28 @@ position = Vector2(-41, 2)
 shape = SubResource("CircleShape2D_l07r7")
 
 [node name="Sprite2D" type="Sprite2D" parent="Flipper"]
-position = Vector2(2, 0)
-scale = Vector2(3.33871, 3.05)
-texture = ExtResource("2_62cx5")
+position = Vector2(12, 10)
+scale = Vector2(0.488867, 0.522113)
+texture = ExtResource("37_sf7hr")
+
+[node name="Area2D" type="Area2D" parent="Flipper"]
+position = Vector2(-47, 3)
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flipper/Area2D"]
+light_mask = 9
+visibility_layer = 9
+position = Vector2(6, -1)
+shape = SubResource("CircleShape2D_anyjn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 light_mask = 512
 visibility_layer = 512
+position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_pw1fh")
 
 [connection signal="body_entered" from="FoodDetector" to="." method="_on_food_detector_body_entered"]
 [connection signal="body_exited" from="FoodDetector" to="." method="_on_food_detector_body_exited"]
+[connection signal="body_entered" from="Flipper/Area2D" to="." method="_on_area_2d_body_entered"]

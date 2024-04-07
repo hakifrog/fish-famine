@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://byrey65lgwgom"]
+
+[sub_resource type="FontFile" id="FontFile_dq8rc"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3f2i8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66u6p"]
+bg_color = Color(0.286275, 0.286275, 0.286275, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3jg4w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_los5d"]
+bg_color = Color(0.431373, 0.431373, 0.431373, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i48ls"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mofni"]
+bg_color = Color(0.258824, 0.529412, 0.262745, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s5a6s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rumf"]
+bg_color = Color(1, 0.576471, 0.517647, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ij41h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6a32n"]
+bg_color = Color(1, 0, 0, 1)
+
+[node name="Hungerbar" type="ProgressBar"]
+custom_minimum_size = Vector2(50, 4)
+offset_left = 26.0
+offset_top = 19.0
+offset_right = 96.0
+offset_bottom = 39.0
+theme_override_fonts/font = SubResource("FontFile_dq8rc")
+theme_override_styles/background = SubResource("StyleBoxEmpty_3f2i8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_66u6p")
+value = 100.0
+show_percentage = false
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 70.0
+offset_right = 140.0
+offset_bottom = 20.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_3jg4w")
+theme_override_styles/fill = SubResource("StyleBoxFlat_los5d")
+value = 100.0
+show_percentage = false
+
+[node name="ProgressBar3" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 140.0
+offset_right = 210.0
+offset_bottom = 20.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_i48ls")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mofni")
+value = 100.0
+show_percentage = false
+
+[node name="ProgressBar4" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 210.0
+offset_right = 280.0
+offset_bottom = 20.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_s5a6s")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7rumf")
+value = 100.0
+show_percentage = false
+
+[node name="ProgressBar5" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 280.0
+offset_right = 350.0
+offset_bottom = 20.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_ij41h")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6a32n")
+value = 100.0
+show_percentage = false
