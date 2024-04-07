@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5lgsbnska6dn"]
+
+[ext_resource type="Script" path="res://Scripts/StarvationEnding.gd" id="1_xxt5x"]
+
+[node name="SGameOver" type="CanvasLayer"]
+script = ExtResource("1_xxt5x")
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -182.0
+offset_right = -51.0
+offset_bottom = -217.0
+theme_override_font_sizes/font_size = 20
+text = "The Fish died of starvation.
+You underfed the fish."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 390.0
+offset_top = 14.0
+offset_right = -490.0
+offset_bottom = -540.0
+theme_override_font_sizes/font_size = 50
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MainMenuButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.121
+anchor_bottom = 0.076
+offset_left = 436.0
+offset_top = 298.0
+offset_right = 602.16
+offset_bottom = 344.96
+theme_override_font_sizes/font_size = 30
+text = "Main Menu"
+
+[node name="RetryButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.052
+anchor_bottom = 0.064
+offset_left = 435.0
+offset_top = 373.0
+offset_right = 604.92
+offset_bottom = 420.44
+theme_override_font_sizes/font_size = 30
+text = "Retry"
+
+[connection signal="pressed" from="Control/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="Control/RetryButton" to="." method="_on_retry_button_pressed"]

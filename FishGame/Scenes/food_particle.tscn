@@ -35,14 +35,14 @@ position = Vector2(0, -1)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_ifet6")
 
-[node name="FishMouth Detector" type="Area2D" parent="."]
+[node name="FishMouthDetector" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 8
 script = SubResource("GDScript_t72nv")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FishMouth Detector"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FishMouthDetector"]
 light_mask = 25
 visibility_layer = 25
 polygon = PackedVector2Array(-7, 24, -3, 24, -3, 21, 0, 21, 0, 18, 3, 18, 3, 15, 6, 15, 6, 12, 10, 12, 13, 8, 13, 5, 15, 5, 19, 3, 22, -1, 22, -10, 14, -13, 9, -20, 2, -19, 3, -15, -4, -16, -5, -10, -11, -10, -12, -5, -16, -5, -16, -1, -20, 0, -19, 5, -22, 5, -21, 14, -18, 15, -18, 21, -16, 20, -16, 23)
 
-[connection signal="body_entered" from="FishMouth Detector" to="." method="_on_fish_mouth_detector_body_entered"]
+[connection signal="body_entered" from="FishMouthDetector" to="." method="_on_fish_mouth_detector_body_entered"]

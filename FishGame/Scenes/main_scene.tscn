@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://bp6wdkgtd4mvq"]
 
 [ext_resource type="PackedScene" uid="uid://bwvy12hwgvw4g" path="res://Scenes/fish.tscn" id="1_6gbrv"]
+[ext_resource type="Texture2D" uid="uid://bjbdkblohy5g4" path="res://Sprites and Art/Acuarium.jpg" id="1_t373k"]
 [ext_resource type="Script" path="res://Scripts/FoodSpawner.gd" id="2_b6xpd"]
-[ext_resource type="Script" path="res://Scripts/startpoint.gd" id="3_sqhdy"]
 [ext_resource type="PackedScene" uid="uid://byu2rlnv67lem" path="res://Scenes/air_pump.tscn" id="4_f21hf"]
 
 [sub_resource type="GDScript" id="GDScript_lf8xg"]
@@ -17,11 +17,20 @@ distance = -452.59
 normal = Vector2(1, 0)
 distance = -357.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wooq0"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_lqn73"]
+radius = 2.0
 
 [node name="MainScene" type="Node2D"]
 position = Vector2(-41, -3)
 script = SubResource("GDScript_lf8xg")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 56.0
+offset_top = 8.0
+offset_right = 1212.0
+offset_bottom = 661.0
+texture = ExtResource("1_t373k")
+expand_mode = 1
 
 [node name="Fish" parent="." instance=ExtResource("1_6gbrv")]
 light_mask = 9
@@ -29,7 +38,7 @@ visibility_layer = 9
 position = Vector2(623, 334)
 
 [node name="FoodSpawner" type="Node2D" parent="."]
-position = Vector2(52, 7)
+position = Vector2(180, 32)
 script = ExtResource("2_b6xpd")
 
 [node name="Timer" type="Timer" parent="FoodSpawner"]
@@ -52,17 +61,16 @@ shape = SubResource("WorldBoundaryShape2D_lasuj")
 position = Vector2(-159, -63)
 shape = SubResource("WorldBoundaryShape2D_ub3x3")
 
-[node name="Activator" type="CharacterBody2D" parent="."]
-position = Vector2(592, 337)
-collision_layer = 9
-collision_mask = 9
-script = ExtResource("3_sqhdy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Activator"]
-visible = false
-position = Vector2(-1, 1)
-shape = SubResource("CircleShape2D_wooq0")
-
 [node name="AirPump" parent="." instance=ExtResource("4_f21hf")]
+
+[node name="food" type="RigidBody2D" parent="."]
+position = Vector2(530, 341)
+collision_layer = 25
+collision_mask = 25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="food"]
+light_mask = 25
+visibility_layer = 25
+shape = SubResource("CircleShape2D_lqn73")
 
 [connection signal="timeout" from="FoodSpawner/Timer" to="FoodSpawner" method="_on_timer_timeout"]

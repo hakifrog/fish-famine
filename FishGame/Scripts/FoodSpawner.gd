@@ -1,5 +1,5 @@
 extends Node2D
-const width = 1050
+const width = 1000
 const height = 20
 var spawnArea = Rect2()
 const food = preload("res://Scenes/food_particle.tscn")

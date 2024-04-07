@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbgqvlub6rv42"]
+
+[ext_resource type="Script" path="res://Scripts/BGameOver.gd" id="1_huxrm"]
+
+[node name="BGameOver" type="CanvasLayer"]
+script = ExtResource("1_huxrm")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 432.0
+offset_top = 55.0
+offset_right = -448.0
+offset_bottom = -522.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 372.0
+offset_top = 71.0
+offset_right = -376.0
+offset_bottom = -417.0
+theme_override_font_sizes/font_size = 20
+text = "The Fish Blew Up.
+You overfed the fish"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -3.0
+offset_top = -1.0
+offset_right = 37.0
+offset_bottom = 39.0
+
+[node name="Button2" type="Button" parent="Control"]
+offset_left = 462.0
+offset_top = 329.0
+offset_right = 687.0
+offset_bottom = 389.0
+theme_override_font_sizes/font_size = 40
+text = "Retry"
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 252.0
+offset_right = 688.0
+offset_bottom = 315.0
+theme_override_font_sizes/font_size = 40
+text = "Main Menu"
+
+[connection signal="pressed" from="Control/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
