@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bp6wdkgtd4mvq"]
+[gd_scene load_steps=10 format=3 uid="uid://bp6wdkgtd4mvq"]
 
 [ext_resource type="PackedScene" uid="uid://bwvy12hwgvw4g" path="res://Scenes/fish.tscn" id="1_6gbrv"]
 [ext_resource type="Texture2D" uid="uid://bjbdkblohy5g4" path="res://Sprites and Art/Acuarium.jpg" id="1_t373k"]
@@ -7,8 +7,15 @@
 
 [sub_resource type="GDScript" id="GDScript_lf8xg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_07eun"]
-size = Vector2(1211, 20)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_13ggt"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lasuj"]
+normal = Vector2(-1, 0)
+distance = -452.59
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ub3x3"]
+normal = Vector2(1, 0)
+distance = -357.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lqn73"]
 radius = 2.0
@@ -43,8 +50,16 @@ position = Vector2(633, 333)
 position = Vector2(580, 615)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(42, 45)
-shape = SubResource("RectangleShape2D_07eun")
+position = Vector2(42, 34)
+shape = SubResource("WorldBoundaryShape2D_13ggt")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(170.41, -63)
+shape = SubResource("WorldBoundaryShape2D_lasuj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-159, -63)
+shape = SubResource("WorldBoundaryShape2D_ub3x3")
 
 [node name="AirPump" parent="." instance=ExtResource("4_f21hf")]
 
