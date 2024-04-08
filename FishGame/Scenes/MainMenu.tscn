@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://beqxgpd7m05cb"]
+[gd_scene load_steps=5 format=3 uid="uid://beqxgpd7m05cb"]
 
+[ext_resource type="AudioStream" uid="uid://suoee88vdeqk" path="res://sound/menu/MENU_SELECTION_SFX.wav" id="2_pe6a1"]
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="2_y4q8l"]
+[ext_resource type="AudioStream" uid="uid://cnd6vdqfkipct" path="res://sound/menu/MENU_SELECTION_CONFIRMED_SFX.wav" id="3_holsd"]
+[ext_resource type="AudioStream" uid="uid://cew55o0ce8dcw" path="res://sound/menu/Title_Screen_Master.wav" id="4_8vtdt"]
 
 [node name="Menu" type="Node"]
 
@@ -73,6 +76,61 @@ size_flags_vertical = 3
 text = "Credits
 "
 
+[node name="Sound" type="Node" parent="CanvasLayer"]
+
+[node name="ButtonFocused" type="AudioStreamPlayer" parent="CanvasLayer/Sound"]
+stream = ExtResource("2_pe6a1")
+bus = &"SFX"
+
+[node name="ButtonPressed" type="AudioStreamPlayer" parent="CanvasLayer/Sound"]
+stream = ExtResource("3_holsd")
+bus = &"SFX"
+
+[node name="Soundtrack" type="AudioStreamPlayer" parent="CanvasLayer/Sound"]
+stream = ExtResource("4_8vtdt")
+bus = &"Soundtrack"
+
+[node name="Credits" type="Control" parent="CanvasLayer"]
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.95
+anchor_top = 0.95
+anchor_right = 0.95
+anchor_bottom = 0.95
+offset_left = -114.0
+offset_top = -40.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Back" type="Button" parent="CanvasLayer/Credits/PanelContainer"]
+layout_mode = 2
+text = "Back to Menu"
+
+[connection signal="mouse_entered" from="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/StartButtom" to="CanvasLayer" method="_on_button_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/StartButtom" to="CanvasLayer" method="_on_start_buttom_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="CanvasLayer" method="_on_button_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/QuitButton" to="CanvasLayer" method="_on_quit_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CreditsButton" to="CanvasLayer" method="_on_button_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CreditsButton" to="CanvasLayer" method="_on_credits_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Credits/PanelContainer/Back" to="CanvasLayer" method="_on_button_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/Credits/PanelContainer/Back" to="CanvasLayer" method="_on_back_button_pressed"]
