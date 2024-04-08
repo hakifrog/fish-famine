@@ -28,7 +28,7 @@ var pause_time: float = 0.0
 var pause_state: bool = false
 var counter = 0
 
-var OldAge = true
+var OldAge = false
 
 var threshold_counter: int = 10
 var timer_duration: float = 75
@@ -60,12 +60,14 @@ func update_hunger_state():
 	
 	if hunger_level <= 20 && OldAge == false:
 		hunger_state = HungerState.STARVED
-	elif hunger_level <= 40  && OldAge == false:
+	elif hunger_level <= 40 && hunger_level > 20  && OldAge == false:
 		hunger_state = HungerState.HUNGRY
-	elif hunger_level >= 80  && OldAge == false:
+	elif hunger_level < 80 && hunger_level >= 60 && OldAge == false:
 		hunger_state = HungerState.FULL
 	elif hunger_state > 40 && hunger_level < 60  && OldAge == false:
 		hunger_state = HungerState.HEALTHY
+	elif hunger_level >= 80 && OldAge == false:
+		hunger_state = HungerState.OBESE
 	elif OldAge == true:
 		hunger_state = HungerState.OLD
 
@@ -143,18 +145,26 @@ func _physics_process(delta):
 				return
 			move_to_target()
 			
-	if pause_state == true && HungerState.STARVED:
+	if pause_state == true && hunger_state == HungerState.STARVED:
 		AnimPlay.play("starvingidle")
-	elif pause_state == false && HungerState.STARVED:
+	elif pause_state == false && hunger_state == HungerState.STARVED:
 		AnimPlay.play("starving_swim")
-	elif pause_state == true && HungerState.HUNGRY:
+	elif pause_state == true && hunger_state == HungerState.HUNGRY:
 		AnimPlay.play("hungryidle")
-	elif pause_state == false && HungerState.HUNGRY:
+	elif pause_state == false && hunger_state == HungerState.HUNGRY:
 		AnimPlay.play("hungryswim")
-	elif pause_state == true && HungerState.HEALTHY:
+	elif pause_state == true && hunger_state == HungerState.HEALTHY:
 		AnimPlay.play("healthyidle")
-	elif pause_state == false && HungerState.HEALTHY:
+	elif pause_state == false && hunger_state == HungerState.HEALTHY:
 		AnimPlay.play("healthyswim")
+	elif pause_state == true && hunger_state == HungerState.FULL:
+		AnimPlay.play("fullidle")
+	elif pause_state == false && hunger_state == HungerState.FULL:
+		AnimPlay.play("fullswim")
+	elif pause_state == true && hunger_state == HungerState.OBESE:
+		AnimPlay.play("fatidle")
+	elif pause_state == false && hunger_state == HungerState.OBESE:
+		AnimPlay.play("fatswim")
 
 	adjust_speed_based_on_hunger()
 
@@ -190,9 +200,5 @@ func _on_food_detector_body_exited(body):
 
 
 func _on_area_2d_body_entered(body2):
-	if HungerState.STARVED:
-		AnimPlay.play("starvingeat")
-	elif HungerState.HUNGRY:
-		AnimPlay.play("hungryeat")
-	hunger_level += 5
+	hunger_level += 3.85
 	return
