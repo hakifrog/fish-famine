@@ -1,8 +1,10 @@
-[gd_scene load_steps=78 format=3 uid="uid://bwvy12hwgvw4g"]
+[gd_scene load_steps=80 format=3 uid="uid://bwvy12hwgvw4g"]
 
 [ext_resource type="Script" path="res://Scripts/Fish.gd" id="1_rp6hm"]
 [ext_resource type="Texture2D" uid="uid://c5xs5elsy3usd" path="res://Sprites and Art/STARVING_FISH/STARVING_IDLE/STARVING_IDLE_1.png" id="2_otgxv"]
+[ext_resource type="AudioStream" uid="uid://b05eg8ewm7sey" path="res://sound/food/FOOD_PARTICLE_CRACKING.wav" id="2_qmn2o"]
 [ext_resource type="Texture2D" uid="uid://beq2ipcms00qj" path="res://Sprites and Art/STARVING_FISH/STARVING_IDLE/STARVING_IDLE_2.png" id="3_ealxi"]
+[ext_resource type="AudioStream" uid="uid://b0hq0qky8yq2x" path="res://sound/fish/FISH_MOVEMENT_03.wav" id="3_wh50f"]
 [ext_resource type="Texture2D" uid="uid://bmvsru8kpsach" path="res://Sprites and Art/STARVING_FISH/STARVING_IDLE/STARVING_IDLE_3.png" id="4_rv7mu"]
 [ext_resource type="Texture2D" uid="uid://bqbhomqfutwty" path="res://Sprites and Art/STARVING_FISH/STARVING_SWIM/STARVING_FISH_SWIM_1.png" id="5_78320"]
 [ext_resource type="Texture2D" uid="uid://ic6as6psp288" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/STARVING_FISH/STARVING_SWIM/STARVING_FISH_SWIM_3.png" id="5_aqu7d"]
@@ -57,6 +59,102 @@
 [ext_resource type="Texture2D" uid="uid://cib6gg2i5pine" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/FULL_FISH/EATING_FULL_FISH/FULL_EATING_1.png" id="55_xxkof"]
 [ext_resource type="Texture2D" uid="uid://bfu8siqygf484" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/FULL_FISH/EATING_FULL_FISH/FULL_EATING_2.png" id="56_ack67"]
 [ext_resource type="Texture2D" uid="uid://c1xt415jrw6k8" path="res://Sprites and Art/FISH_STATES1-3/FISH_STATES/FULL_FISH/EATING_FULL_FISH/FULL_EATING_3.png" id="57_58niy"]
+
+[sub_resource type="Animation" id="Animation_fr1lr"]
+resource_name = "fateat"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flipper/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("44_1u7v3"), ExtResource("45_apai1"), ExtResource("46_i3syo")]
+}
+
+[sub_resource type="Animation" id="Animation_n6pfy"]
+resource_name = "fatidle"
+length = 0.57
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flipper/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("38_7avu3"), ExtResource("39_a7uud"), ExtResource("40_5uqdr")]
+}
+
+[sub_resource type="Animation" id="Animation_xt2v0"]
+resource_name = "fatswim"
+length = 0.57
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flipper/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("41_6i4aa"), ExtResource("42_w8fwl"), ExtResource("43_067h6")]
+}
+
+[sub_resource type="Animation" id="Animation_ap0hu"]
+resource_name = "fulleat"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flipper/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("55_xxkof"), ExtResource("56_ack67"), ExtResource("57_58niy")]
+}
+
+[sub_resource type="Animation" id="Animation_77mky"]
+resource_name = "fullidle"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flipper/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("52_or54t"), ExtResource("53_cei2s"), ExtResource("54_5gapc")]
+}
+
+[sub_resource type="Animation" id="Animation_5bo3n"]
+resource_name = "fullswim"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flipper/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("47_4xml0"), ExtResource("48_qrfeh"), ExtResource("49_lqn7t"), ExtResource("50_ao35k"), ExtResource("51_h61pv")]
+}
 
 [sub_resource type="Animation" id="Animation_1ckec"]
 resource_name = "healthyeat"
@@ -202,102 +300,6 @@ tracks/0/keys = {
 "values": [ExtResource("2_otgxv"), ExtResource("3_ealxi"), ExtResource("4_rv7mu")]
 }
 
-[sub_resource type="Animation" id="Animation_n6pfy"]
-resource_name = "fatidle"
-length = 0.57
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flipper/Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("38_7avu3"), ExtResource("39_a7uud"), ExtResource("40_5uqdr")]
-}
-
-[sub_resource type="Animation" id="Animation_xt2v0"]
-resource_name = "fatswim"
-length = 0.57
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flipper/Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("41_6i4aa"), ExtResource("42_w8fwl"), ExtResource("43_067h6")]
-}
-
-[sub_resource type="Animation" id="Animation_fr1lr"]
-resource_name = "fateat"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flipper/Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("44_1u7v3"), ExtResource("45_apai1"), ExtResource("46_i3syo")]
-}
-
-[sub_resource type="Animation" id="Animation_5bo3n"]
-resource_name = "fullswim"
-length = 0.9
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flipper/Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("47_4xml0"), ExtResource("48_qrfeh"), ExtResource("49_lqn7t"), ExtResource("50_ao35k"), ExtResource("51_h61pv")]
-}
-
-[sub_resource type="Animation" id="Animation_77mky"]
-resource_name = "fullidle"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flipper/Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("52_or54t"), ExtResource("53_cei2s"), ExtResource("54_5gapc")]
-}
-
-[sub_resource type="Animation" id="Animation_ap0hu"]
-resource_name = "fulleat"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flipper/Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("55_xxkof"), ExtResource("56_ack67"), ExtResource("57_58niy")]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vponx"]
 _data = {
 "fateat": SubResource("Animation_fr1lr"),
@@ -335,6 +337,16 @@ collision_layer = 9
 collision_mask = 9
 script = ExtResource("1_rp6hm")
 
+[node name="Sounds" type="Node" parent="."]
+
+[node name="FoodCrack" type="AudioStreamPlayer2D" parent="Sounds"]
+position = Vector2(515, 12)
+stream = ExtResource("2_qmn2o")
+
+[node name="fishMovement" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("3_wh50f")
+volume_db = 10.878
+
 [node name="FishAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_vponx")
@@ -364,7 +376,7 @@ shape = SubResource("CircleShape2D_l07r7")
 [node name="Sprite2D" type="Sprite2D" parent="Flipper"]
 position = Vector2(13, 10)
 scale = Vector2(0.488867, 0.522113)
-texture = ExtResource("54_5gapc")
+texture = ExtResource("32_gtdkm")
 
 [node name="Area2D" type="Area2D" parent="Flipper"]
 position = Vector2(-47, 3)
@@ -372,8 +384,8 @@ collision_layer = 9
 collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flipper/Area2D"]
-light_mask = 9
-visibility_layer = 9
+light_mask = 8
+visibility_layer = 8
 position = Vector2(-1, -1)
 shape = SubResource("CircleShape2D_anyjn")
 

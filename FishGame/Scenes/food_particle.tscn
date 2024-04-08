@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://2gpyru46xy8n"]
+[gd_scene load_steps=5 format=3 uid="uid://2gpyru46xy8n"]
 
 [ext_resource type="Script" path="res://Scripts/FoodParticle.gd" id="1_ehega"]
 [ext_resource type="Texture2D" uid="uid://con1pemrb7upy" path="res://Sprites and Art/foodsprite.png" id="2_ifet6"]
+[ext_resource type="AudioStream" uid="uid://n8o072xdl7vl" path="res://sound/food/FOOD_PARTICLE_TOUCHDOWN_BOTTOM.wav" id="3_tfnxk"]
 
 [sub_resource type="GDScript" id="GDScript_t72nv"]
 script/source = "extends Area2D
@@ -44,5 +45,10 @@ script = SubResource("GDScript_t72nv")
 light_mask = 25
 visibility_layer = 25
 polygon = PackedVector2Array(-7, 24, -3, 24, -3, 21, 0, 21, 0, 18, 3, 18, 3, 15, 6, 15, 6, 12, 10, 12, 13, 8, 13, 5, 15, 5, 19, 3, 22, -1, 22, -10, 14, -13, 9, -20, 2, -19, 3, -15, -4, -16, -5, -10, -11, -10, -12, -5, -16, -5, -16, -1, -20, 0, -19, 5, -22, 5, -21, 14, -18, 15, -18, 21, -16, 20, -16, 23)
+
+[node name="sound" type="Node" parent="."]
+
+[node name="Touchdown" type="AudioStreamPlayer2D" parent="sound"]
+stream = ExtResource("3_tfnxk")
 
 [connection signal="body_entered" from="FishMouthDetector" to="." method="_on_fish_mouth_detector_body_entered"]

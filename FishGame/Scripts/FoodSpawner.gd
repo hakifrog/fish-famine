@@ -6,12 +6,14 @@ const food = preload("res://Scenes/food_particle.tscn")
 var delta = 2
 var offset = 0.25
 
+@onready var FoodSpawn = $"../Sounds/foodSpawn"
 func _ready():
 	randomize()
 	spawnArea = Rect2(0,0, width,height)
 	nextSpawn()
 	
 func spawnfood():
+	FoodSpawn.play()
 	var position = Vector2(randi()%width, randi()%height)
 	var foodp = food.instantiate()
 	foodp.position = position

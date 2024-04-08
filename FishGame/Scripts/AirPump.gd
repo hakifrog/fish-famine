@@ -8,9 +8,17 @@ extends CharacterBody2D
 @onready var AnimPlay = $PumpAnimation
 @onready var CharBase = $CollisionShape2D
 @onready var ForceArea = $Area2D
+@onready var robotsound = $"../Sounds/robot_long"
 
 func _physics_process(delta):
 	var direction = Input.get_axis("left", "right")
+	if Input.is_action_just_pressed("left") || Input.is_action_just_pressed("right"):
+		robotsound.play()
+	elif Input.is_action_just_released("left") || Input.is_action_just_released("right"):
+		robotsound.stop()
+		return
+		
+		
 	if direction:
 		velocity.x = direction * MovementSpeed
 	else:

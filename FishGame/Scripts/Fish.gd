@@ -9,6 +9,9 @@ enum HungerState {
 	OLD
 }
 
+@onready var fishMoved = $Sounds/fishMovement
+@onready var foodcracked = $Sounds/FoodCrack
+@onready var FishTankBG = $"../Sounds/fishtankbg"
 var speed: float = 120
 var chasing: bool = false
 var food = null
@@ -44,6 +47,8 @@ var deathTimer = 0
 func select_new_target():
 	var random_position = Vector2(randi_range(150, 1100), randi_range(150, 425))
 	target_position = random_position
+	fishMoved.play()
+	
 
 func move_to_target():
 	velocity = (target_position - position).normalized() * speed
@@ -52,6 +57,7 @@ func move_to_target():
 
 
 func _ready():
+	FishTankBG.play()
 	select_new_target()
 
 
