@@ -15,10 +15,6 @@ run/main_scene="res://Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-BubbleTrans="*res://Scenes/bubble_trans.tscn"
-
 [display]
 
 window/stretch/mode="viewport"
